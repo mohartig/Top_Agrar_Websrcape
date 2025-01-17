@@ -28,3 +28,7 @@ Two visualizations are created:
 - Overall Keyword Trends: This line plot displays the annual frequency of all keywords on a single graph, with each keyword represented by a distinct line and color. It provides a comprehensive view of how the discussion around specific topics evolves over time.
 - Faceted Keyword Trends: This faceted plot presents a separate line chart for each keyword, with independent y-axes to highlight individual trends. It allows for a focused analysis of each term's occurrence.
 
+# Misc
+
+Folder structure is designed to be extended with Google Trends analysis
+
