@@ -1,6 +1,9 @@
 ## Load necessary libraries
-library(rvest)
-library(dplyr)
+library("rvest")
+library("dplyr")
+
+## Replace with your path
+save.path <- ""
 
 ## Define the base URL (replace the year dynamically in the loop)
 base_url <- "https://www.topagrar.com/heftarchiv/?year="
@@ -11,8 +14,8 @@ article_data <- data.frame(Year = integer(), Heftausgabe_URL = character(), Arti
 ## Create an empty data frame to store any errors that occur during the process
 error_log <- data.frame(Year = integer(), Heftausgabe_URL = character(), Error_Message = character(), stringsAsFactors = FALSE)
 
-## Loop through the years 2000 to 2024
-for (year in 2000:2024) {
+## Loop through the years 2000 to 2025
+for (year in 2000:2025) {
   ## Construct the URL for each year
   year_url <- paste0(base_url, year)
   cat("Processing year:", year, "URL:", year_url, "\n")
@@ -59,17 +62,16 @@ for (year in 2000:2024) {
   }
 }
 
-
 article_data$Article_Title <- trimws(gsub("\\n", "", article_data$Article_Title))
 
 ## Print out the scraped article titles for all years
 print(article_data)
 
 ## Optionally, save the data to a CSV file
-write.csv(article_data, "L:/02_Daten/08_Top_Agrar/01_Data_Code/02_Data/heftausgabe_article_titles_2000_2024.csv", row.names = FALSE)
+write.csv(article_data, paste0(save.path, "/01_Data_Code/02_Data/heftausgabe_article_titles_2000_2024.csv"), row.names = FALSE)
 
 ## Save the error log to a separate CSV file for reference
-write.csv(error_log, "L:/02_Daten/08_Top_Agrar/01_Data_Code/02_Data/heftausgabe_error_log_2000_2024.csv", row.names = FALSE)
+write.csv(error_log, paste0(save.path, "/01_Data_Code/02_Data/heftausgabe_error_log_2000_2024.csv"), row.names = FALSE)
 
-cat("Scraping complete! The article titles have been saved in 'L:/02_Daten/08_Top_Agrar/01_Data/heftausgabe_article_titles_2000_2024.csv'.\n")
-cat("Errors encountered have been logged in 'L:/02_Daten/08_Top_Agrar/01_Data/heftausgabe_error_log_2000_2024.csv'.\n")
+cat("Scraping complete! The article titles have been saved in 'heftausgabe_article_titles_2000_2025.csv'.\n")
+cat("Errors encountered have been logged in 'heftausgabe_error_log_2000_2025.csv'.\n")
