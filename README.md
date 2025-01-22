@@ -1,6 +1,8 @@
 # Top_Agrar_Websrcape
  Webscraping Exercise for the Top Agrar Website
 
+First preliminary (baby)steps and results:
+![keyword_occurrences_facet_plot](https://github.com/user-attachments/assets/2952ccd5-03b3-45f5-b055-8cddc768e31f)
 
 # Code: 01_Title_Webscrape_Top_Agrar.R
 
